@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :chapter_id, style: "display: block" %>
-    <%= form.text_field :chapter_id %>
+    <%= form.select :chapter_id, chapters, selected: campaign.chapter_id, include_blank: "Select a Chapter" %>
   </div>
 
   <div>

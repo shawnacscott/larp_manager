@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.1"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 # User authentication
 gem 'devise'
 

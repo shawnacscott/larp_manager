@@ -1,0 +1,27 @@
+<h1><%= @character.name %></h1>
+
+<table>
+<thead>
+  <tr>
+    <% @attributes.keys.each do |attrs| %>
+      <th><%= attrs.titleize %></th>
+    <% end %>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <% @attributes.values.each do |value| %>
+      <td>
+        <%= value %>
+      </td>
+    <% end %>
+  </tr>
+</tbody>
+</table>
+
+<div>
+  <%= link_to "Edit this character", edit_character_path(@character) %> |
+  <%= link_to "Back to characters", characters_path %>
+
+  <%= button_to "Destroy this character", @character, method: :delete %>
+</div>

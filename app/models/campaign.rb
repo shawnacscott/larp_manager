@@ -18,5 +18,7 @@
 #  fk_rails_...  (chapter_id => chapters.id)
 #
 class Campaign < ApplicationRecord
+  resourcify
+
   belongs_to :chapter
 end

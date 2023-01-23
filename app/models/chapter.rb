@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Chapter < ApplicationRecord
+  resourcify
 end

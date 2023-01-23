@@ -20,5 +20,7 @@
 #  fk_rails_...  (chapter_id => chapters.id)
 #
 class Event < ApplicationRecord
+  resourcify
+
   belongs_to :chapter
 end

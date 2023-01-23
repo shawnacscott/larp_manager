@@ -17,5 +17,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Character < ApplicationRecord
+  resourcify
+
   belongs_to :user
 end

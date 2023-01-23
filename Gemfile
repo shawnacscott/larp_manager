@@ -11,7 +11,7 @@ gem "cssbundling-rails"
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-# User authentication
+# User authentication [https://github.com/heartcombo/devise]
 gem 'devise'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -23,7 +23,7 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-# Decorate User model with Roles
+# Decorate User model with Roles [https://github.com/RolifyCommunity/rolify]
 gem "rolify"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

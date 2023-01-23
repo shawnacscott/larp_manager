@@ -1,0 +1,23 @@
+<h1>Role Management</h1>
+
+<table class="table">
+<thead>
+  <tr>
+    <th>User</th>
+    <th>Roles</th>
+  </tr>
+</thead>
+<tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= user.roles.collect { |r| r.name }.join(", ") %>
+        <%= link_to "Edit Roles", edit_user_path(user) %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

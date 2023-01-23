@@ -1,27 +1,34 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  # Skip Devise authentication (i.e. do not require a user to be
+  # signed in) for the event index and show pages
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_chapters, only: [:new, :edit]
 
   # GET /events
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   # GET /events/1
-  def show
-  end
+  def show; end
 
   # GET /events/new
   def new
     @event = Event.new
+
+    authorize @event
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(permitted_attributes(Event))
+
+    authorize @event
 
     if @event.save
       redirect_to @event, notice: "Event was successfully created."
@@ -32,7 +39,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
-    if @event.update(event_params)
+    if @event.update(permitted_attributes(@event))
       redirect_to @event, notice: "Event was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -46,13 +53,13 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:name, :start_date, :end_date, :description, :chapter_id)
-    end
+  def set_event
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
+  def set_chapters
+    @chapters = policy_scope(current_user.all_chapter_role_chapters).pluck(:name, :id)
+  end
 end

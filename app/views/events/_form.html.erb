@@ -33,7 +33,7 @@
 
   <div>
     <%= form.label :chapter_id, style: "display: block" %>
-    <%= form.text_field :chapter_id %>
+    <%= form.select :chapter_id, chapters, selected: event.chapter_id, include_blank: "Select a hosting chapter" %>
   </div>
 
   <div>

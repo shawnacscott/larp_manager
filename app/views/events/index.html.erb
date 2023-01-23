@@ -2,13 +2,11 @@
 
 <h1>Events</h1>
 
+<% if policy(@events).new? %>
+  <%= link_to "New event", new_event_path %>
+<% end %>
+
 <div id="events">
-  <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
-  <% end %>
+  <%= render "table", events: @events %>
 </div>
 
-<%= link_to "New event", new_event_path %>

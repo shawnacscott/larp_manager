@@ -27,6 +27,40 @@ class User < ApplicationRecord
   has_many :characters
   after_create :assign_default_role
 
+  def is_staff?
+    self.has_any_role?(:national_staff, :superuser, *all_chapter_roles_for_user)
+  end
+
+  def all_chapter_roles_for_user
+    Array.wrap(director_roles) + Array.wrap(chapter_staff_roles)
+  end
+
+  def all_chapter_role_chapters
+    self.chapter_staff_of_chapters.or(self.director_of_chapters)
+  end
+
+  def director_roles
+    director_of_chapters.collect do |chapter|
+      { name: :director, resource: chapter }
+    end
+  end
+
+  def director_of_chapters
+    Chapter.with_role(:director, self)
+  end
+
+  def chapter_staff_roles
+    chapter_staff_of_chapters.collect do |chapter|
+      { name: :chapter_staff, resource: chapter }
+    end
+  end
+
+  def chapter_staff_of_chapters
+    Chapter.with_role(:chapter_staff, self)
+  end
+
+  private
+
   def assign_default_role
     self.add_role(:player) if self.roles.blank?
   end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: Add explainer comments
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -9,31 +10,31 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    read?
   end
 
   def show?
-    false
+    read?
   end
 
   def create?
-    false
+    write?
   end
 
   def new?
-    create?
+    write?
   end
 
   def update?
-    false
+    write?
   end
 
   def edit?
-    update?
+    write?
   end
 
   def destroy?
-    false
+    write?
   end
 
   class Scope
@@ -49,5 +50,15 @@ class ApplicationPolicy
     private
 
     attr_reader :user, :scope
+  end
+
+  private
+
+  def read?
+    user.is_superuser?
+  end
+
+  def write?
+    user.is_superuser?
   end
 end

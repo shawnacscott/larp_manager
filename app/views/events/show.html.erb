@@ -1,10 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= @event.name %></h1>
 
-<%= render @event %>
+<div id="<%= dom_id @event %>">
+  <p>
+    <strong>Start date:</strong>
+    <%= @event.start_date %>
+  </p>
 
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
+  <p>
+    <strong>End date:</strong>
+    <%= @event.end_date %>
+  </p>
 
-  <%= button_to "Destroy this event", @event, method: :delete %>
+  <p>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </p>
+
+  <p>
+    <strong>Chapter:</strong>
+    <%= link_to @event.chapter.name, chapter_path(@event.chapter) %>
+  </p>
 </div>
+
+<%= render "breadcrumbs", event: @event %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :roles
   resources :campaigns
   resources :events
   resources :chapters

@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :characters
 
   # Defines the root path route ("/")
-  root "home#new"
+  root "home#dashboard"
 end

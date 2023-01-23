@@ -23,6 +23,9 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+# User authorization via policies [https://github.com/varvet/pundit]
+gem "pundit"
+
 # Decorate User model with Roles [https://github.com/RolifyCommunity/rolify]
 gem "rolify"
 

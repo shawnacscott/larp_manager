@@ -25,7 +25,6 @@ class Role < ApplicationRecord
 
   validates :name,
     presence: true,
-    uniqueness: true,
     format: {
       with: /\A[a-z_]+\z/,
       message: "only allows letters and underscores"

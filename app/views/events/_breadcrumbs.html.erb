@@ -1,4 +1,4 @@
-<% if current_user.is_staff? %>
+<% if current_user.is_chapter_staff_or_greater? %>
   <div>
     <%= button_to edit_event_path(event), { class: "btn btn-primary", disabled: !policy(event).edit? } do %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -10,6 +10,7 @@
     <% end %>
   </div>
 <% end %>
+<%# Check the EventPolicy#index? method, which is inherited from ApplicationPolicy#index? %>
 <% if policy(event).index? %>
   <div>
     <%= link_to "Back to events", events_path %>

@@ -1,7 +1,7 @@
 <table class="table table-hover">
 <thead>
   <tr>
-    <% if current_user.is_staff? %>
+    <% if current_user.is_chapter_staff_or_greater? %>
     <th></th>
     <% end %>
     <th>Name</th>
@@ -13,7 +13,7 @@
 <tbody>
   <% events.each do |event| %>
     <tr>
-      <% if current_user.is_staff? %>
+      <% if current_user.is_chapter_staff_or_greater? %>
       <td>
         <%= button_to edit_event_path(event), { class: "btn btn-primary", disabled: !policy(event).edit? } do %>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

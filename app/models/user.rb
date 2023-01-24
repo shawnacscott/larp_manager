@@ -27,7 +27,11 @@ class User < ApplicationRecord
   has_many :characters
   after_create :assign_default_role
 
-  def is_staff?
+  def is_national_staff_or_greater?
+    self.has_any_role?(:national_staff, :superuser)
+  end
+
+  def is_chapter_staff_or_greater?
     self.has_any_role?(:national_staff, :superuser, *all_chapter_roles_for_user)
   end
 

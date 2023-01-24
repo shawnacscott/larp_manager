@@ -4,23 +4,19 @@
   <table class="table table-hover">
   <thead>
     <tr>
-      <% @characters.first.attributes.keys.each do |attrs| %>
-        <th><%= attrs.titleize %></th>
-      <% end %>
+      <th>Name</th>
+      <th>User</th>
     </tr>
   </thead>
   <tbody>
     <% @characters.each do |character| %>
       <tr>
-        <% character.attributes.values.each do |value| %>
-          <td>
-            <%= value %>
-          </td>
-        <% end %>
+        <td><%= link_to character.name, character_path(character) %></td>
+        <td><%= link_to character.user.email, user_path(character.user) %></td>
       </tr>
     <% end %>
   </tbody>
   </table>
 <% end %>
 
-<%= link_to "New character", new_character_path %>
+<%= render "breadcrumbs" %>

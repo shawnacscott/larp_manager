@@ -16,10 +16,12 @@
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.select :user_id, users, selected: character.user_id || current_user.id %>
-  </div>
+  <% if current_user.is_national_staff_or_greater? %>
+    <div>
+      <%= form.label :user_id, style: "display: block" %>
+      <%= form.select :user_id, users, selected: character.user_id || current_user.id %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>

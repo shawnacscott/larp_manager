@@ -4,10 +4,18 @@ class CharactersController < ApplicationController
 
   def new
     @character = Character.new
+
+    authorize @character
   end
 
   def create
-    @character = Character.new(character_params)
+    @character = Character.new(permitted_attributes(Character))
+
+    if !current_user.is_national_staff_or_greater?
+      @character.user_id = current_user.id
+    end
+
+    authorize @character
 
     if @character.save
       redirect_to @character, notice: "Character was successfully created."
@@ -16,11 +24,10 @@ class CharactersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if @character.update(character_params)
+    if @character.update(permitted_attributes(Character))
       redirect_to @character, notice: "Character was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -28,13 +35,10 @@ class CharactersController < ApplicationController
   end
 
   def index
-    @characters = Character.all
-    @users = User.all
+    @characters = policy_scope(Character)
   end
 
-  def show
-    @attributes = @character.attributes
-  end
+  def show; end
 
   def destroy
     @character.destroy
@@ -45,15 +49,10 @@ class CharactersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_character
-    @character = Character.find(params[:id])
+    @character = authorize Character.find(params[:id])
   end
 
   def set_users
-    @users = User.select(:email, :id).all.collect {|u| [ u.email, u.id ] }
-  end
-
-  # Only allow a list of trusted parameters through.
-  def character_params
-    params.require(:character).permit(:name, :user_id)
+    @users = policy_scope(User).pluck(:email, :id)
   end
 end

@@ -1,27 +1,15 @@
 <h1><%= @character.name %></h1>
 
-<table class="table table-hover">
-<thead>
-  <tr>
-    <% @attributes.keys.each do |attrs| %>
-      <th><%= attrs.titleize %></th>
-    <% end %>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <% @attributes.values.each do |value| %>
-      <td>
-        <%= value %>
-      </td>
-    <% end %>
-  </tr>
-</tbody>
-</table>
+<div id="<%= dom_id @character %>">
+  <p>
+    <strong>Name:</strong>
+    <%= @character.name %>
+  </p>
 
-<div>
-  <%= link_to "Edit this character", edit_character_path(@character) %> |
-  <%= link_to "Back to characters", characters_path %>
-
-  <%= button_to "Destroy this character", @character, method: :delete %>
+  <p>
+    <strong>User:</strong>
+    <%= @character.user.email %>
+  </p>
 </div>
+
+<%= render "breadcrumbs", character: @character %>

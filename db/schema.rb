@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_22_223254) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_015901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,8 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_223254) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_characters_on_user_id"
+    t.bigint "profile_id", null: false
+    t.index ["profile_id"], name: "index_characters_on_profile_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -46,6 +46,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_223254) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chapter_id"], name: "index_events_on_chapter_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.integer "for_acting_as", default: 0
+    t.integer "status", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_223254) do
   end
 
   add_foreign_key "campaigns", "chapters"
-  add_foreign_key "characters", "users"
+  add_foreign_key "characters", "profiles"
   add_foreign_key "events", "chapters"
+  add_foreign_key "profiles", "users"
 end

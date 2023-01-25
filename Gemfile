@@ -9,10 +9,8 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.1"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
-gem 'sprockets-rails', :require => 'sprockets/railtie'
-
-# User authentication
-gem 'devise'
+# User authentication [https://github.com/heartcombo/devise]
+gem "devise"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
@@ -22,6 +20,8 @@ gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+
+gem "sprockets-rails", :require => "sprockets/railtie"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -33,7 +33,7 @@ end
 
 group :development do
   # Annotate models with database attributes
-  gem 'annotate'
+  gem "annotate"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler"

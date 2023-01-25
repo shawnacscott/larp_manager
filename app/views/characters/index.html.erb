@@ -1,26 +1,5 @@
 <h1>Characters</h1>
 
-<% if @characters.present? %>
-  <table class="table table-hover">
-  <thead>
-    <tr>
-      <% @characters.first.attributes.keys.each do |attrs| %>
-        <th><%= attrs.titleize %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @characters.each do |character| %>
-      <tr>
-        <% character.attributes.values.each do |value| %>
-          <td>
-            <%= value %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
-<% end %>
+<%= render "characters", characters: @characters %>
 
 <%= link_to "New character", new_character_path %>

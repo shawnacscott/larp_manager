@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :campaigns
-  resources :events
-  resources :chapters
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
+  resources :campaigns
+  resources :chapters
   resources :characters
+  resources :events
+  resources :profiles
 
   # Defines the root path route ("/")
-  root "home#dashboard"
+  root "profiles#show"
 end

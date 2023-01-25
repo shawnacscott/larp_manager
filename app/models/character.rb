@@ -6,16 +6,16 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :bigint
+#  profile_id :bigint           not null
 #
 # Indexes
 #
-#  index_characters_on_user_id  (user_id)
+#  index_characters_on_profile_id  (profile_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (user_id => users.id)
+#  fk_rails_...  (profile_id => profiles.id)
 #
 class Character < ApplicationRecord
-  belongs_to :user
+  belongs_to :profile
 end

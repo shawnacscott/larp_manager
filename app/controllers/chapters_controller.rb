@@ -3,7 +3,7 @@ class ChaptersController < ApplicationController
 
   # GET /chapters
   def index
-    @chapters = Chapter.all
+    @chapters = policy_scope(Chapter)
   end
 
   # GET /chapters/1

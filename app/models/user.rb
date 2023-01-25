@@ -31,6 +31,10 @@ class User < ApplicationRecord
     self.has_any_role?(:national_staff, :superuser)
   end
 
+  def is_director_or_greater?
+    self.has_any_role?(:national_staff, :superuser, *director_roles)
+  end
+
   def is_chapter_staff_or_greater?
     self.has_any_role?(:national_staff, :superuser, *all_chapter_roles_for_user)
   end

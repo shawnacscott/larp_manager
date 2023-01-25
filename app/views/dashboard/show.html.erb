@@ -1,2 +1,5 @@
-<%= render template: "characters/index", character: @character %>
-<%= render template: "events/index", events: @events %>
+<%# TODO: Fix character table display on dashboard %>
+<%#= render template: "characters/index", character: @character %>
+
+<h2>Events</h2>
+<%= render "events/table", events: @events %>

@@ -48,7 +48,6 @@ class CharactersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def character_params
-    # TODO: Remove user association
-    params.require(:character).permit(:name, :user_id)
+    params.require(:character).permit(:name)
   end
 end

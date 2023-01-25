@@ -12,6 +12,9 @@ gem "cssbundling-rails"
 # User authentication [https://github.com/heartcombo/devise]
 gem "devise"
 
+# Workflow builder [https://github.com/collectiveidea/interactor-rails]
+gem 'interactor-rails'
+
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
@@ -20,6 +23,9 @@ gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+
+# Authorization system [https://github.com/varvet/pundit]
+gem "pundit"
 
 gem "sprockets-rails", :require => "sprockets/railtie"
 

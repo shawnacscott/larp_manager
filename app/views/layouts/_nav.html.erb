@@ -20,11 +20,26 @@
                     <li class="nav-item">
                         <%= link_to 'Characters', characters_path, class: 'nav-link' %>
                     </li>
-                    <li class="nav-item">
-                    <%= link_to "Hi, #{current_user.email}", edit_user_registration_path, class: 'nav-link' %>
-                    </li>
-                    <li class="nav-item">
-                    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link btn btn-outline-primary' %>
+                    <li class="nav-item dropdown">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info">
+                                <%= link_to current_user.active_profile.for_acting_as.titleize, profile_path(current_user.active_profile) %>
+                            </button>
+                            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <%# <span class="sr-only">Toggle Dropdown</span> # TODO: "sr-only" class is not hiding this content; fix it! %>
+                            </button>
+                            <div class="dropdown-menu">
+                                <h6 class="dropdown-header">Switch To</h6>
+                                <% current_user.profiles.each do |profile| %>
+                                    <% active_profile_id = current_user.active_profile.id %>
+                                    <% disabled = active_profile_id == profile.id %>
+                                    <%= link_to "#{profile.for_acting_as.titleize} Profile", switch_active_profile_path(old_id: active_profile_id, new_id: profile.id), method: :put, class: disabled ? "dropdown-item disabled" : "dropdown-item", disabled: disabled %>
+                                <% end %>
+                                <div class="dropdown-divider"></div>
+                                <%= link_to "Account Settings", edit_user_registration_path, class: "dropdown-item" %>
+                                <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'dropdown-item btn btn-outline-primary' %>
+                            </div>
+                        </div>
                     </li>
                 <% else %>
                     <li class="nav-item">

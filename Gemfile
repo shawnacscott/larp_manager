@@ -12,6 +12,9 @@ gem "cssbundling-rails"
 # User authentication [https://github.com/heartcombo/devise]
 gem "devise"
 
+# Workflow builder [https://github.com/collectiveidea/interactor-rails]
+gem 'interactor-rails'
+
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 

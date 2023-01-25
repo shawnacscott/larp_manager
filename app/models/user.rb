@@ -22,5 +22,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # TODO: Remove user association
   has_many :characters
 end

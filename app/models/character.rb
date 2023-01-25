@@ -17,5 +17,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Character < ApplicationRecord
+  # TODO: Remove user association
   belongs_to :user
 end

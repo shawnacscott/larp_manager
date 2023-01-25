@@ -17,8 +17,9 @@
   </div>
 
   <div>
+    <%# TODO: Remove user association %>
     <%= form.label :user_id, style: "display: block" %>
-    <%= form.select :user_id, users, selected: character.user_id || current_user.id %>
+    <%= form.text_field :user_id %>
   </div>
 
   <div>

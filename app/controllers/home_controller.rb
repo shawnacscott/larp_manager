@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
   def dashboard
     @events = Event.all
-    @characters = current_user.characters
+    # TODO: add back once user isn't directly connected
+    # @characters = current_user.characters
   end
 end

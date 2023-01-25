@@ -1,6 +1,5 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
-  before_action :set_users, only: %i[ new edit ]
 
   def new
     @character = Character.new
@@ -29,7 +28,6 @@ class CharactersController < ApplicationController
 
   def index
     @characters = Character.all
-    @users = User.all
   end
 
   def show
@@ -48,12 +46,9 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
-  def set_users
-    @users = User.select(:email, :id).all.collect {|u| [ u.email, u.id ] }
-  end
-
   # Only allow a list of trusted parameters through.
   def character_params
+    # TODO: Remove user association
     params.require(:character).permit(:name, :user_id)
   end
 end

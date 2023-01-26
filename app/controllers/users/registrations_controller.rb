@@ -6,6 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def create_default_profile
-    Profile.create(user: @user) if @user.persisted?
+    SetupNewAccount.call(user_id: @user.id)
   end
 end

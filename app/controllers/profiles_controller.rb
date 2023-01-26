@@ -78,11 +78,4 @@ class ProfilesController < ApplicationController
       :user_id
     )
   end
-
-  def switch_params
-    params.permit(
-      :old_id,
-      :new_id
-    )
-  end
 end

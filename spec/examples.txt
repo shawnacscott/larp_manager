@@ -1,5 +1,0 @@
-example_id                                                 | status  | run_time        |
----------------------------------------------------------- | ------- | --------------- |
-./spec/interactors/create_default_character_spec.rb[1:1:1] | pending | 0 seconds       |
-./spec/interactors/create_profile_spec.rb[1:1:1]           | pending | 0 seconds       |
-./spec/interactors/setup_new_account_spec.rb[1:1:1]        | pending | 0.00002 seconds |

@@ -1,5 +1,7 @@
 # LARP Manager
 
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 Hacakthon LARP manager thingy
 
 # Setup
@@ -8,6 +10,11 @@ Must have installed:
 * Ruby 3.2.0
 * Redis? # TODO: Check if this is used yet? We'll definitely need it eventually.
 * Postgres 15
+
+# Local testing, linting, style guide, and autoformatting
+```
+rake
+```
 
 # Gems
 ## Gems we chose to add to the app that you should probably read about how to use

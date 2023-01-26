@@ -56,3 +56,5 @@ jobs:
         run: bin/brakeman -q -w2
       - name: Lint Ruby files
         run: bin/standardrb --no-fix
+      - name: Lint Rails code
+        run: bin/rails_best_practices

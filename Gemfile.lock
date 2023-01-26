@@ -77,6 +77,8 @@ GEM
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
+    code_analyzer (0.5.5)
+      sexp_processor
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     cssbundling-rails (1.1.2)
@@ -93,6 +95,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    erubis (2.7.0)
     globalid (1.0.1)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -170,6 +173,14 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
+    rails_best_practices (1.23.2)
+      activesupport
+      code_analyzer (~> 0.5.5)
+      erubis
+      i18n
+      json
+      require_all (~> 3.0)
+      ruby-progressbar
     railties (7.0.4.1)
       actionpack (= 7.0.4.1)
       activesupport (= 7.0.4.1)
@@ -182,6 +193,7 @@ GEM
     regexp_parser (2.6.2)
     reline (0.3.2)
       io-console (~> 0.5)
+    require_all (3.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -219,6 +231,7 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
+    sexp_processor (4.16.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -266,6 +279,7 @@ DEPENDENCIES
   pundit
   rack-mini-profiler
   rails (~> 7.0.4, >= 7.0.4.1)
+  rails_best_practices
   rspec-rails
   sprockets-rails
   standard

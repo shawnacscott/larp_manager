@@ -42,6 +42,9 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
 
+  # Scan dependencies for compatible licensing [https://github.com/pivotal/LicenseFinder]
+  gem "license_finder"
+
   # Code Metric Tooling [https://github.com/flyerhzm/rails_best_practices]
   gem "rails_best_practices"
 

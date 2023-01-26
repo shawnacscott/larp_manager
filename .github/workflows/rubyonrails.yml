@@ -58,3 +58,5 @@ jobs:
         run: bin/standardrb --no-fix
       - name: Lint Rails code
         run: bin/rails_best_practices
+      - name: Check dependency licenses
+        run: bin/license_finder

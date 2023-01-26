@@ -21,6 +21,7 @@ To be added:
 * <some kind of linting, maybe rubocop or standardrb>
 
 ## Gems we chose to add that you don't really need to think about
+# TODO: Add gems for testing/static analysis
 * [Annotate](https://github.com/ctran/annotate_models) - Automatically generates and adds schema information comments to model classes when running `bin/rails db:migrate`
 
 ## Gems installed by Rails at initial setup

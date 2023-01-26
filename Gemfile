@@ -33,6 +33,9 @@ gem "sprockets-rails", :require => "sprockets/railtie"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
+  # Security linting for dependencies [https://github.com/rubysec/bundler-audit]
+  gem "bundler-audit"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 

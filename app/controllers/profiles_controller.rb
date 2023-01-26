@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[ show edit update destroy ]
+  before_action :set_profile, only: %i[show edit update destroy]
 
   # GET /profiles
   def index
@@ -51,7 +51,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1/switch_to/2
   def switch_active_profile
     profile_to_inactivate = Profile.find_by(user: current_user, id: params[:old_id])
-    profile_to_active     = Profile.find_by(user: current_user, id: params[:new_id])
+    profile_to_active = Profile.find_by(user: current_user, id: params[:new_id])
 
     # TODO: Figure out how to catch and handle the errors this might raise
     ActiveRecord::Base.transaction do
@@ -59,7 +59,7 @@ class ProfilesController < ApplicationController
       profile_to_active.active!
     end
 
-    redirect_back(fallback_location: root_path)#, notice: "Profile was successfully updated."
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -76,13 +76,6 @@ class ProfilesController < ApplicationController
       :for_acting_as,
       :status,
       :user_id
-    )
-  end
-
-  def switch_params
-    params.permit(
-      :old_id,
-      :new_id
     )
   end
 end

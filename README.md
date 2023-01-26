@@ -1,5 +1,7 @@
 # LARP Manager
 
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 Hacakthon LARP manager thingy
 
 # Setup
@@ -8,6 +10,11 @@ Must have installed:
 * Ruby 3.2.0
 * Redis? # TODO: Check if this is used yet? We'll definitely need it eventually.
 * Postgres 15
+
+# Local testing, linting, style guide, and autoformatting
+```
+rake
+```
 
 # Gems
 ## Gems we chose to add to the app that you should probably read about how to use
@@ -21,6 +28,7 @@ To be added:
 * <some kind of linting, maybe rubocop or standardrb>
 
 ## Gems we chose to add that you don't really need to think about
+# TODO: Add gems for testing/static analysis
 * [Annotate](https://github.com/ctran/annotate_models) - Automatically generates and adds schema information comments to model classes when running `bin/rails db:migrate`
 
 ## Gems installed by Rails at initial setup
@@ -49,6 +57,9 @@ bin/rails g pundit:policy <model name>
 bin/rails g interactor <desired interactor name>
 bin/rails g interactor:organizer <desired organizer name> <list of existing interactor names, in order>
 ```
+
+# CI & Deploy
+
 
 # First time deploy setup
 * Set up superuser profiles

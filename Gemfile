@@ -44,6 +44,9 @@ group :development, :test do
 
   # Rails testing framework [https://github.com/rspec/rspec-rails]
   gem "rspec-rails"
+
+  # Ruby style guide, linter, and formatter [https://github.com/testdouble/standard]
+  gem "standard"
 end
 
 group :development do

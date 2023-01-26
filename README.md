@@ -50,6 +50,9 @@ bin/rails g interactor <desired interactor name>
 bin/rails g interactor:organizer <desired organizer name> <list of existing interactor names, in order>
 ```
 
+# CI & Deploy
+
+
 # First time deploy setup
 * Set up superuser profiles
 * Set up chapters

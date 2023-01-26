@@ -13,7 +13,7 @@ gem "cssbundling-rails"
 gem "devise"
 
 # Workflow builder [https://github.com/collectiveidea/interactor-rails]
-gem 'interactor-rails'
+gem "interactor-rails"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
@@ -27,10 +27,10 @@ gem "puma", "~> 5.0"
 # Authorization system [https://github.com/varvet/pundit]
 gem "pundit"
 
-gem "sprockets-rails", :require => "sprockets/railtie"
+gem "sprockets-rails", require: "sprockets/railtie"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   # Static analysis security scanner [https://github.com/presidentbeef/brakeman]
@@ -40,7 +40,7 @@ group :development, :test do
   gem "bundler-audit"
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
 
   # Rails testing framework [https://github.com/rspec/rspec-rails]
   gem "rspec-rails"
@@ -59,4 +59,3 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-

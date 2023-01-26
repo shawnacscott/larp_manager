@@ -33,6 +33,9 @@ gem "sprockets-rails", :require => "sprockets/railtie"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
+  # Static analysis security scanner [https://github.com/presidentbeef/brakeman]
+  gem "brakeman"
+
   # Security linting for dependencies [https://github.com/rubysec/bundler-audit]
   gem "bundler-audit"
 

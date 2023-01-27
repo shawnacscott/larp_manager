@@ -14,4 +14,5 @@ task default: %i[
   license_finder
   brakeman:check
   bundle:audit:update
+  coverage:report
 ]

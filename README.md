@@ -59,6 +59,14 @@ bin/rails g interactor:organizer <desired organizer name> <list of existing inte
 ```
 
 # CI & Deploy
+# TODO: (research all of these to see if a good idea first) Set up GitHub branch deployments, Possibly Dockerize for Code Sandbox, set up Code Climate test coverage, set up Dependabot with auto merge, set up New Relic, paper_trail for auditing, administrate for admin UIs, rolify for roles
+
+https://docs.codeclimate.com/docs/configuring-test-coverage#section-quick-guide
+https://codesandbox.io/blog/introducing-docker-support-in-codesandbox
+https://github.com/paper-trail-gem/paper_trail
+https://github.com/thoughtbot/administrate
+https://github.com/RolifyCommunity/rolify
+https://github.com/paambaati/codeclimate-action
 
 
 # First time deploy setup

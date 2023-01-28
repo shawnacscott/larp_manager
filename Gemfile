@@ -54,6 +54,9 @@ group :development, :test do
   # Rails testing framework [https://github.com/rspec/rspec-rails]
   gem "rspec-rails"
 
+  # Ruby testing coverage library [https://github.com/simplecov-ruby/simplecov]
+  gem "simplecov"
+
   # Ruby style guide, linter, and formatter [https://github.com/testdouble/standard]
   gem "standard"
 end

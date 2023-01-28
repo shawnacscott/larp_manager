@@ -45,6 +45,10 @@ To be added:
 * [rack-mini-profiler](https://github.com/MiniProfiler/rack-mini-profiler) - Add speed badges
 * [web-console](https://github.com/rails/web-console) - Use console on exceptions pages
 
+#### Browser Testing
+We use Cypress and Cypress-Rails to run browser e2e testing.
+Use `rake cypress:open` to develop tests with the cypress GUI and `rake cypress:run` to run the cypress tests with a headless browser.
+
 # Helpful gem generators
 In these commands, we'll be using the shortened form of the `rails generate` command, `rails g`.
 ## Pundit

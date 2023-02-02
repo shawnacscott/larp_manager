@@ -74,5 +74,4 @@ group :development, :test do
   
   # Cypress browser testing intgration for testing
   gem "cypress-rails"
-
 end

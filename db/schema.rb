@@ -33,8 +33,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_015901) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.bigint "profile_id", null: false
     t.index ["profile_id"], name: "index_characters_on_profile_id"
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -72,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_015901) do
 
   add_foreign_key "campaigns", "chapters"
   add_foreign_key "characters", "profiles"
+  add_foreign_key "characters", "users"
   add_foreign_key "events", "chapters"
   add_foreign_key "profiles", "users"
 end

@@ -68,3 +68,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+group :development, :test do
+  # Cypress browser testing intgration for testing
+  gem "cypress-rails"
+end

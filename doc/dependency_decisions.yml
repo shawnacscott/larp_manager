@@ -105,3 +105,13 @@
     :why:
     :versions: []
     :when: 2023-01-26 07:02:22.204589000 Z
+- - :approve
+  - tslib
+  - &1
+    :who:
+    :why:
+    :versions: []
+    :when: 2023-02-03 01:42:55.075057000 Z
+- - :approve
+  - tweetnacl
+  - *1
